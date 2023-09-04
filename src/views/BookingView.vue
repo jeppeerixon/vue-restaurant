@@ -1,6 +1,6 @@
 <template>
     <div class="booking">
-      <h1>This is the booking view!</h1>
+      <h1>This is the booking view!!</h1>
     </div>
 </template>
   
