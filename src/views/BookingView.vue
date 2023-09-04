@@ -1,15 +1,24 @@
+<script setup lang="ts">
+  import SearchDate from '@/components/SearchDate.vue';
+  import SearchResult from '@/components/SearchResult.vue'
+  import SearchConfirm from '@/components/SearchConfirm.vue'
+</script>
+
 <template>
-    <div class="booking">
-      <h1>This is the booking view!!</h1>
-    </div>
+  <div class="booking">
+    <SearchDate />
+    <SearchResult />
+    <SearchConfirm />
+  </div>
 </template>
   
-<style>
-  @media (min-width: 1024px) {
-    .booking {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
+<style scoped>
+  .booking {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
   }
 </style>
