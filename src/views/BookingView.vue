@@ -2,11 +2,17 @@
   import SearchDate from '@/components/SearchDate.vue';
   import SearchResult from '@/components/SearchResult.vue'
   import SearchConfirm from '@/components/SearchConfirm.vue'
+
+  const handleSubmit = (date: string, guests: number) => {
+    console.log(date)
+    console.log(guests)
+  }
+
 </script>
 
 <template>
   <div class="booking">
-    <SearchDate />
+    <SearchDate @user-input="handleSubmit"/>
     <SearchResult />
     <SearchConfirm />
   </div>
