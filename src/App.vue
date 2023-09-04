@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import StartPage from './components/StartPage.vue';
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <StartPage></StartPage>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -42,7 +41,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: #28464B;
 }
 
 nav a.router-link-exact-active:hover {
