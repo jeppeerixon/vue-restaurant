@@ -37,4 +37,12 @@
         margin-top: 1rem;
     }
 
+    h1 {
+        color: azure;
+    }
+
+    form {
+        color: azure;
+    }
+
 </style>

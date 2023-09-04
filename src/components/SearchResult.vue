@@ -23,4 +23,16 @@
     padding-left: 0;
   }
 
+  h1 {
+        color: azure;
+    }
+
+    form {
+        color: azure;
+    }
+
+    li {
+      color: azure;
+    }
+
 </style>
