@@ -26,11 +26,15 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        }
+    }
 
     .searchDate {
-    display: flex;
-    flex-direction: column;
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        margin-top: 1rem;
     }
 
 </style>

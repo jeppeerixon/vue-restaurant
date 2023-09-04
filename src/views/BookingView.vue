@@ -14,6 +14,17 @@
   
 <style scoped>
   .booking {
+    margin-top: 1rem;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+  .booking {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,4 +32,5 @@
     justify-content: center;
     gap: 1rem;
   }
+}
 </style>
