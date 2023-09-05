@@ -5,4 +5,5 @@ export interface IBooking {
     time: string;
     numberOfGuests: number;
     customerId: string;
+    editMode: boolean;
   }
