@@ -17,12 +17,12 @@
     }
     h1 {
         background-color: #42d9c8;
-        color: #28468b;
+        color: #28464b;
         padding: 2rem;
     }
 
     p {
-        color: #28468b;
+        color: #28464b;
         padding: 2rem;
     }
 
