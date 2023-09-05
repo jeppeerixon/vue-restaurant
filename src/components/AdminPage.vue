@@ -13,9 +13,8 @@
           <button @click="deleteBooking(booking._id)" class="delete-button">Delete</button>
         </div>
         <div v-if="editMode[index]" class="edit-form">
-          <!-- Add your edit form fields here -->
-          <input v-model="bookingUpdateData.date" type="text" placeholder="Updated Date">
-          <input v-model="bookingUpdateData.time" type="text" placeholder="Updated Time">
+          <input v-model="bookingUpdateData.date" type="date" placeholder="Updated Date">
+          <input v-model="bookingUpdateData.time" type="time" placeholder="Updated Time">
           <input v-model="bookingUpdateData.numberOfGuests" type="text" placeholder="Updated Guests">
           <button @click="editBooking(booking, index)" class="update-button">Update</button>
         </div>
@@ -55,7 +54,6 @@
   };
   
   onMounted(() => {
-    // Fetch bookings when the component is mounted
     fetchBookings();
   });
 
@@ -67,10 +65,10 @@
       numberOfGuests: bookingUpdateData.value.numberOfGuests,
     };
     
-    // Send a PUT request to update the booking
+
     await axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${booking._id}`, updatedBooking);
     
-    // Update the local state and exit edit mode
+    
     booking.date = bookingUpdateData.value.date;
     booking.time = bookingUpdateData.value.time;
     booking.numberOfGuests = bookingUpdateData.value.numberOfGuests;
