@@ -94,12 +94,13 @@ import { ref, type Ref } from 'vue';
 
 input[type="checkbox"] {
   width: 1.5rem;
+  accent-color: #931621;
 }
 
 /* Style the submit button */
 .confirmDate button {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #931621;
+  color: azure;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
@@ -108,7 +109,7 @@ input[type="checkbox"] {
 
 /* Style the submit button on hover */
 .confirmDate button:hover {
-  background-color: #0056b3;
+  background-color: #a73c45;
 }
 
 button:disabled {

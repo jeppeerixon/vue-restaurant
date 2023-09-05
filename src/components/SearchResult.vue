@@ -59,19 +59,19 @@
     font-size: 16px; /* Set the font size */
     border: none; /* Remove the default button border */
     border-radius: 4px; /* Add rounded corners to the button */
-    background-color: #007bff; /* Set the background color */
+    background-color: #931621; /* Set the background color */
     color: #fff; /* Set the text color */
     cursor: pointer; /* Show a pointer cursor on hover */
   }
 
   /* Style the button on hover */
   button:hover {
-    background-color: #0056b3; /* Change the background color on hover */
+    background-color: #a73c45; /* Change the background color on hover */
   }
 
   /* Style the button when clicked */
   button:active {
-    background-color: #004192; /* Change the background color when clicked */
+    background-color: #a73c45; /* Change the background color when clicked */
   }
 
 </style>
