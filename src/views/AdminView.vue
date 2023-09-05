@@ -1,6 +1,10 @@
+<script setup lang="ts">
+  import AdminPage from '@/components/AdminPage.vue';
+</script>
+
 <template>
     <div class="admin">
-      <h1>This is the admin view!</h1>
+      <AdminPage></AdminPage>
     </div>
 </template>
   
