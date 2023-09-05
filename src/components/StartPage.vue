@@ -11,18 +11,18 @@
 
 <style scoped>
     div {
-        background-color: #931621;
+        background-color: #42d9c8;
         margin: 2rem;
         
     }
     h1 {
-        background-color: #931621;
-        color: azure;
+        background-color: #42d9c8;
+        color: #28468b;
         padding: 2rem;
     }
 
     p {
-        color: azure;
+        color: #28468b;
         padding: 2rem;
     }
 
