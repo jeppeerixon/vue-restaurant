@@ -13,10 +13,13 @@
     restaurantId: '98asd6a87sduoi897sda',
     date: '',
     numberOfGuests: 0,
-    time: ''
+    time: '',
+    name: '',
+    phone: '',
+    email: ''
   })
 
-  const handleSubmit = (date: string, guests: number) => {
+  const handleSubmitDate = (date: string, guests: number) => {
     console.log(date)
     console.log(guests)
     bookingData.value.date = date;
@@ -24,13 +27,26 @@
     stepTracker.value.step2 = true;
   }
 
+  const handleSubmitSearch = (time: string) => {
+    console.log(time)
+    bookingData.value.time = time;
+    stepTracker.value.step3 = true;
+  }
+
+  const handleSubmitConfirm = (name: string, phone: string, email: string) => {
+    console.log(name, phone, email)
+    bookingData.value.name = name;
+    bookingData.value.phone = phone;
+    bookingData.value.email = email;
+  }
+
 </script>
 
 <template>
   <div class="booking">
-    <SearchDate @user-input="handleSubmit"/>
-    <SearchResult v-if="stepTracker.step2" :picked-date="bookingData.test"/>
-    <SearchConfirm v-if="stepTracker.step3" />
+    <SearchDate @user-input="handleSubmitDate"/>
+    <SearchResult v-if="stepTracker.step2" :picked-date="bookingData.date" @user-select="handleSubmitSearch"/>
+    <SearchConfirm v-if="stepTracker.step3" @user-confirm="handleSubmitConfirm"/>
     <!-- 3.5 GPDR checkbox -->
     <!-- 4. Step Bokningsbekräftelse -->
   </div>

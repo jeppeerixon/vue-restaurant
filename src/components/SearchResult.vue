@@ -4,6 +4,12 @@
     pickedDate?: string
   }>()
 
+  const emits = defineEmits<{ (e: "userSelect", time: string): void }>();
+
+  const handleClick = (e: Event) => {
+      emits("userSelect", (e.target as HTMLInputElement).value);
+  };
+
 </script>
 
 <template>
@@ -11,10 +17,10 @@
       <h1>Step 2 - Select time</h1>
       <h3>{{ props.pickedDate }}</h3>
       <ul class="resultList">
-        <li><button>18:00</button></li> <!-- tid i knappen! && visa datumet tydligt -->
-        <li><button>20:00</button></li>
+        <li><button @click.prevent="handleClick" value="18:00">18:00</button></li> 
+        <li><button @click.prevent="handleClick" value="20:00">20:00</button></li>
       </ul>
-      <!-- v-if / v-else Inga lediga tider -->
+      <!-- v-if / v-else Inga lediga tider, måste göras med fetch om listan är längre än 15 == fullt! -->
     </div>
 </template>
 

@@ -1,17 +1,38 @@
+<script setup lang="ts">
+import { ref, type Ref } from 'vue';
+
+
+  const emits = defineEmits<{ (e: "userConfirm", name: string, phone: string, email: string): void }>();
+  const handleClick = () => {
+      emits("userConfirm", inputName.value, inputPhone.value, inputEmail.value);
+  };
+
+  const inputName: Ref<string> = ref('')
+  const inputPhone: Ref<string> = ref('')
+  const inputEmail: Ref<string> = ref('')
+  const gdprCheck: Ref<boolean> = ref(false)
+
+</script>
+
 <template>
     <div class="confirmBooking">
       <h1>Step 3 - Confirm booking</h1>
       <form id="confirmDate" class="confirmDate">
-        <label for="totalGuests">Name</label>
-        <input type="text">
+        <label for="userInfo">Name</label>
+        <input required type="text" v-model="inputName">
 
-        <label for="totalGuests">Phone</label>
-        <input type="text">
+        <label for="userInfo">Phone</label>
+        <input type="text" v-model="inputPhone">
 
-        <label for="totalGuests">Email</label>
-        <input type="text">
+        <label for="userInfo">Email</label>
+        <input type="text" v-model="inputEmail">
 
-        <button>Confirm</button>
+        <div>
+          <label for="userInfo">GDPR</label>
+          <input type="checkbox" v-model="gdprCheck">
+        </div>
+
+        <button type="submit" @click.prevent="handleClick" :disabled="!gdprCheck">Confirm</button>
       </form>
     </div>
 </template>
@@ -30,6 +51,11 @@
     flex-direction: column;
   }
 
+  .confirmDate div {
+    display: flex;
+    justify-content: space-between;
+  }
+
   button {
     margin-top: 1rem;
   }
@@ -38,8 +64,57 @@
         color: azure;
     }
 
-    form {
-        color: azure;
-    }
+  form {
+      color: azure;
+  }
+
+  /* Lazy chat gpt css */
+
+  /* Style the form container */
+.confirmDate {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style form labels */
+.confirmDate label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style form inputs */
+.confirmDate input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+}
+
+/* Style the submit button */
+.confirmDate button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style the submit button on hover */
+.confirmDate button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  color: darkgrey;
+  background-color: lightslategray;
+}
+
 
 </style>
