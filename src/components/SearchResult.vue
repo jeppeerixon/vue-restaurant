@@ -25,6 +25,10 @@
 </template>
 
 <style scoped>
+
+h3 {
+  color: azure;
+}
   .searchResult {
     display: flex;
     flex-direction: column;
