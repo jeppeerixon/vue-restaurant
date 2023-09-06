@@ -14,10 +14,28 @@
           <button @click="deleteBooking(booking)" class="delete-button">Delete</button>
         </div>
         <div v-if="editMode[index]" class="edit-form">
-          <input v-model="bookingUpdateData.date" type="date" placeholder="Updated Date">
-          <input v-model="bookingUpdateData.time" type="time" placeholder="Updated Time">
-          <input v-model="bookingUpdateData.numberOfGuests" type="text" placeholder="Updated Guests">
-          <button @click="editBooking(booking, index)" class="update-button">Update</button>
+          <form id="searchDate" class="searchDate">
+          <label for="totalGuests">Number of guests</label>
+          <select name="guests" id="guests" v-model="bookingUpdateData.numberOfGuests">
+            <option disabled value=0>?</option>
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>s
+            <option value=6>6</option>
+        </select>
+
+        <label for="start">Select Date:</label>
+        <input type="date" id="date" name="date" :min=todaysDate  max="2023-12-31" v-model="bookingUpdateData.date"/>
+        <label for="start">Select Time:</label>
+        <select name="time" id="time" v-model="bookingUpdateData.time">
+            <option disabled value=0>?</option>
+            <option value=1>18</option>
+            <option value=2>21</option>
+        </select>
+        </form>
+        <button @click="editBooking(booking, index)" class="update-button">Update</button>
         </div>
       </li>
     </ul>
@@ -38,6 +56,7 @@
   time: '',
   numberOfGuests: 0,
 }); 
+const todaysDate: string = new Date().toJSON().slice(0, 10);
 
   const toggleEditMode = (index: number) => {
     editMode.value[index] = !editMode.value[index];
@@ -110,6 +129,13 @@ const fetchCustomerInfo = async (customerId: string) => {
   </script>
 
 <style scoped>
+
+form {
+  padding:5px;
+}
+label {
+  margin:5px;
+}
 .admin {
   text-align: center;
   padding: 20px;
