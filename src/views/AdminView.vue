@@ -1,10 +1,10 @@
 <script setup lang="ts">
-  import AdminPage from '@/components/AdminPage.vue';
+  import AdminLoginVue from '@/components/AdminLogin.vue';
 </script>
 
 <template>
     <div class="admin">
-      <AdminPage></AdminPage>
+      <AdminLoginVue></AdminLoginVue>
     </div>
 </template>
   
