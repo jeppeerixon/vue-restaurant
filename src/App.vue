@@ -11,7 +11,7 @@ import StartPage from './components/StartPage.vue';
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
         <RouterLink to="/booking">Booking</RouterLink>
         <RouterLink to="/admin">Admin</RouterLink>
 
