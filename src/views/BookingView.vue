@@ -6,6 +6,7 @@
   import type { INewBooking } from '@/models/INewBooking';
   import type { IBooking } from '@/models/IBooking';
   import axios from 'axios';
+import router from '@/router';
 
 
   const bookings = ref<IBooking[]>([]);
@@ -31,7 +32,8 @@
   const postNewBooking = async (newBooking: INewBooking) => {
     try {
       await axios.post('https://school-restaurant-api.azurewebsites.net/booking/create/', newBooking);
-      alert('booking successfull')
+      alert('Booking was a success! See you soon <3')
+      router.push('/')
     } catch (error) {
       console.error(error);
       alert('booking ERROR check console')
