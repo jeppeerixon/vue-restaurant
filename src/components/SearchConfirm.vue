@@ -2,12 +2,13 @@
 import { ref, type Ref } from 'vue';
 
 
-  const emits = defineEmits<{ (e: "userConfirm", name: string, phone: string, email: string): void }>();
+  const emits = defineEmits<{ (e: "userConfirm", name: string, lastName: string, phone: string, email: string): void }>();
   const handleClick = () => {
-      emits("userConfirm", inputName.value, inputPhone.value, inputEmail.value);
+      emits("userConfirm", inputName.value, inputLastName.value, inputPhone.value, inputEmail.value);
   };
 
   const inputName: Ref<string> = ref('')
+  const inputLastName: Ref<string> = ref('')
   const inputPhone: Ref<string> = ref('')
   const inputEmail: Ref<string> = ref('')
   const gdprCheck: Ref<boolean> = ref(false)
@@ -20,6 +21,9 @@ import { ref, type Ref } from 'vue';
       <form id="confirmDate" class="confirmDate">
         <label for="userInfo">Name</label>
         <input required type="text" v-model="inputName">
+
+        <label for="userInfo">Last name</label>
+        <input required type="text" v-model="inputLastName">
 
         <label for="userInfo">Phone</label>
         <input type="text" v-model="inputPhone">
