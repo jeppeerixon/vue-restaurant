@@ -82,4 +82,9 @@ h3 {
     background-color: #a73c45; /* Change the background color when clicked */
   }
 
+  button:disabled {
+    color: darkgrey;
+    background-color: lightslategray;
+  }
+
 </style>

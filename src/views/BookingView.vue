@@ -59,7 +59,8 @@ import router from '@/router';
         tempList.push(element)
       }
     });
-    if (tempList.length >= 15) {
+    console.log(tempList.length)
+    if (tempList.length >= 4) {
       return true
     } else {
       return false
@@ -96,7 +97,7 @@ import router from '@/router';
 <template>
   <div class="booking">
     <SearchDate @user-input="handleSubmitDate"/>
-    <SearchResult v-if="stepTracker.step2" :picked-date="bookingData.date" @user-select="handleSubmitSearch"/>
+    <SearchResult v-if="stepTracker.step2" :full18="full18" :full21="full21" :picked-date="bookingData.date" @user-select="handleSubmitSearch"/>
     <SearchConfirm v-if="stepTracker.step3" @user-confirm="handleSubmitConfirm"/>
     <!-- 3.5 GPDR checkbox -->
     <!-- 4. Step Bokningsbekräftelse -->
