@@ -31,8 +31,8 @@
         <label for="start">Select Time:</label>
         <select name="time" id="time" v-model="bookingUpdateData.time">
             <option disabled value=0>?</option>
-            <option value=1>18</option>
-            <option value=2>21</option>
+            <option value=18:00>18</option>
+            <option value=21:00>21</option>
         </select>
         </form>
         <button @click="editBooking(booking, index)" class="update-button">Update</button>
