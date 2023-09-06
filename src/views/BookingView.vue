@@ -3,8 +3,10 @@
   import SearchResult from '@/components/SearchResult.vue'
   import SearchConfirm from '@/components/SearchConfirm.vue'
   import { onMounted, ref, type Ref } from 'vue'
+  import type { INewBooking } from '@/models/INewBooking';
   import type { IBooking } from '@/models/IBooking';
   import axios from 'axios';
+
 
   const bookings = ref<IBooking[]>([]);
   const full18 = ref<boolean>(false);
@@ -13,15 +15,28 @@
     step2: false,
     step3: false
   })
-  const bookingData: Ref<object> = ref({
-    restaurantId: '98asd6a87sduoi897sda',
+  const bookingData: Ref<INewBooking> = ref({
+    restaurantId: '64f5fcb4264e4838c0d69d35',
     date: '',
     numberOfGuests: 0,
     time: '',
-    name: '',
-    phone: '',
-    email: ''
+    customer: {
+      name: '',
+      lastname: '',
+      phone: '',
+      email: ''
+    }
   })
+
+  const postNewBooking = async (newBooking: INewBooking) => {
+    try {
+      await axios.post('https://school-restaurant-api.azurewebsites.net/booking/create/', newBooking);
+      alert('booking successfull')
+    } catch (error) {
+      console.error(error);
+      alert('booking ERROR check console')
+    }
+  }
 
   const fetchBookings = async () => {
     try {
@@ -35,7 +50,7 @@
     }
   };
 
-  const checkIfFull = (fetchedData: IBooking[], date, time) => {
+  const checkIfFull = (fetchedData: IBooking[], date: string, time: string) => {
     const tempList = []
     fetchedData.forEach((element: IBooking) => {
       if (element.date === date && element.time === time) {
@@ -58,16 +73,16 @@
   }
 
   const handleSubmitSearch = (time: string) => {
-    console.log(time)
     bookingData.value.time = time;
     stepTracker.value.step3 = true;
   }
 
-  const handleSubmitConfirm = (name: string, phone: string, email: string) => {
-    console.log(name, phone, email)
-    bookingData.value.name = name;
-    bookingData.value.phone = phone;
-    bookingData.value.email = email;
+  const handleSubmitConfirm = (name: string, last: string, phone: string, email: string) => {
+    bookingData.value.customer.name = name;
+    bookingData.value.customer.lastname = last;
+    bookingData.value.customer.phone = phone;
+    bookingData.value.customer.email = email;
+    postNewBooking(bookingData.value)
   }
 
   onMounted(() => {
