@@ -19,7 +19,7 @@ import FooterPage from './components/FooterPage.vue';
       </nav>
     </div>
   </header>
-  <div><RouterView /></div>
+  <div class="routerView"><RouterView /></div>
 
   <footer>
     <FooterPage></FooterPage>
@@ -44,6 +44,13 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  
+}
+
+.routerView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 nav a.router-link-exact-active {
@@ -64,6 +71,9 @@ nav a:first-of-type {
   border: 0;
 }
 
+footer {
+  background-color: #28464B;
+}
 @media (min-width: 1024px) {
   header {
     display: flex;

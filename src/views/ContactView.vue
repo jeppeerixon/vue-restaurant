@@ -20,11 +20,21 @@
 </script>
 
 <style scoped>
+
+img {
+  margin-top: 1rem;
+}
+
+.contact {
+  color: azure;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 @media (min-width: 1024px) {
   .contact {
     min-height: 100vh;
     max-width: 150px;
-    color: white;
+    color: azure;
     display: flex;
     flex-direction: column;
     justify-content: center;
