@@ -2,8 +2,9 @@
   <div class="admin">
     <h1 class="admin-title">Admin View</h1>
     <ul class="booking-list">
-      <li v-for="(booking, index) in bookings" :key="booking._id" class="booking-item">
-        <div class="booking-details">
+    <li v-for="(booking, index) in bookings" :key="booking._id" class="booking-item">
+      <div class="booking-details">
+        <span> Name: {{ getCustomerName(booking.customerId) }}</span>
           <span>Date: {{ booking.date }}</span>
           <span>Time: {{ booking.time }}</span>
           <span>Guests: {{ booking.numberOfGuests }}</span>
@@ -28,6 +29,7 @@
   import axios from 'axios';
   import type { IBooking } from "../models/IBooking";
   import type { IBookingUpdate } from "../models/IBookingUpdate";
+  import type { ICustomer } from '@/models/ICustomer';
 
   const bookings = ref<IBooking[]>([]);
   const editMode = ref<boolean[]>([]);
@@ -41,6 +43,26 @@
     editMode.value[index] = !editMode.value[index];
 };
 
+const customerData = ref<Record<string, ICustomer>>({});
+
+const fetchCustomerInfo = async (customerId: string) => {
+  try {
+    const response = await axios.get(`https://school-restaurant-api.azurewebsites.net/customer/${customerId}`);
+    
+    if (Array.isArray(response.data) && response.data.length > 0) {
+      const customer = response.data[0];
+      customerData.value[customerId] = customer;
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+  const getCustomerName = (customerId: string) => {
+    const customer = customerData.value[customerId];
+    return customer ? customer.name : 'Loading...';
+  };
+
   const fetchBookings = async () => {
     try {
       const response = await axios.get(
@@ -48,6 +70,11 @@
       );
       bookings.value = response.data;
       console.log(bookings.value);
+      for (const booking of bookings.value) {
+        await fetchCustomerInfo(booking.customerId);
+      }
+      console.log(bookings.value);
+
     } catch (error) {
       console.error(error);
     }
