@@ -1,5 +1,6 @@
 export interface IBooking {
     _id: string;
+    id: string;
     restaurantId: string;
     date: string;
     time: string;

@@ -10,7 +10,7 @@
         </div>
         <div class="booking-actions">
           <button @click="toggleEditMode(index)" class="edit-button">Edit</button>
-          <button @click="deleteBooking(booking._id)" class="delete-button">Delete</button>
+          <button @click="deleteBooking(booking)" class="delete-button">Delete</button>
         </div>
         <div v-if="editMode[index]" class="edit-form">
           <input v-model="bookingUpdateData.date" type="date" placeholder="Updated Date">
@@ -59,27 +59,26 @@
 
   const editBooking = async (booking: IBooking, index: number) => {
   try {
-    const updatedBooking: IBookingUpdate = {
-      date: bookingUpdateData.value.date,
-      time: bookingUpdateData.value.time,
-      numberOfGuests: bookingUpdateData.value.numberOfGuests,
-    };
-    
-
-    await axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${booking._id}`, updatedBooking);
-    
-    
     booking.date = bookingUpdateData.value.date;
     booking.time = bookingUpdateData.value.time;
     booking.numberOfGuests = bookingUpdateData.value.numberOfGuests;
     editMode.value[index] = false;
+    booking.id = booking._id
+    await axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${booking._id}`, booking);
+    console.log(booking);
   } catch (error) {
     console.error(error);
   }
 }
 
-  const deleteBooking = (_id: string) => {
-    console.log("klickade radera bokning", _id);
+  const deleteBooking = async (booking: IBooking) => {
+    console.log("klickade radera bokning", booking._id);
+    try {
+      await axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${booking._id}`);
+    } catch (error) {
+      console.error(error);
+    }
+    fetchBookings();
   }
   </script>
 
