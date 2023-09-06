@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import StartPage from './components/StartPage.vue';
+import FooterPage from './components/FooterPage.vue';
 </script>
 
 <template>
@@ -18,8 +19,13 @@ import StartPage from './components/StartPage.vue';
       </nav>
     </div>
   </header>
+  <div><RouterView /></div>
 
-  <RouterView />
+  <footer>
+    <FooterPage></FooterPage>
+  </footer>
+
+  
 </template>
 
 <style scoped>

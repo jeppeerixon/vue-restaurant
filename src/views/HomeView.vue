@@ -9,3 +9,4 @@ import RestaurantMenu from '@/components/RestaurantMenu.vue';
    <RestaurantMenu></RestaurantMenu>
   </main>
 </template>
+

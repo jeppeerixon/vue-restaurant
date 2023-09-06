@@ -1,6 +1,6 @@
 <template>
        <header>
-        <h1>Italian Restaurant Menu</h1>
+        <h1>La Italia Menu</h1>
     </header>
     <div class="menu-container">
         <div class="dish">
@@ -43,16 +43,6 @@
             <p>Coffee-flavored dessert with mascarpone</p>
             <p class="price">69 kr</p>
         </div>
-        <div class="dish">
-            <h2>Minestrone Soup</h2>
-            <p>Traditional Italian vegetable soup</p>
-            <p class="price">79 kr</p>
-        </div>
-        <div class="dish">
-            <h2>Calzone</h2>
-            <p>Stuffed pizza turnover with assorted fillings</p>
-            <p class="price">119 kr</p>
-        </div>
     </div>
 </template>
 
@@ -75,7 +65,10 @@
         }
         h1 {
             margin: 0;
-            font-size: 36px;
+            font-family: 'Caveat', cursive;
+            font-family: 'Playfair', serif;
+            font-style: italic;
+            font-size: 3rem;
         }
         .menu-container {
             max-width: 800px;
@@ -90,17 +83,17 @@
             margin-bottom: 20px;
         }
         .dish h2 {
-            font-size: 24px;
+            font-size: 1.3rem;
             margin: 0;
         }
         .dish p {
             margin: 0;
-            font-size: 16px;
+            font-size: 1rem;
             color: azure;
         }
         .price {
-            font-size: 18px;
+            font-size: 11.5rem;
             font-weight: bold;
-            color: #ff5733;
         }
+
 </style>
