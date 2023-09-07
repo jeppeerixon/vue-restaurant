@@ -9,3 +9,13 @@ import RestaurantMenu from '@/components/RestaurantMenu.vue';
    <RestaurantMenu></RestaurantMenu>
   </main>
 </template>
+
+
+<style scoped>
+main { 
+  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+
+</style>

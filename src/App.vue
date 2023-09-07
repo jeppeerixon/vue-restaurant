@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import StartPage from './components/StartPage.vue';
+import FooterPage from './components/FooterPage.vue';
 </script>
 
 <template>
@@ -11,15 +12,20 @@ import StartPage from './components/StartPage.vue';
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/contact">Contact</RouterLink>
         <RouterLink to="/booking">Booking</RouterLink>
         <RouterLink to="/admin">Admin</RouterLink>
 
       </nav>
     </div>
   </header>
+  <div class="routerView"><RouterView /></div>
 
-  <RouterView />
+  <footer>
+    <FooterPage></FooterPage>
+  </footer>
+
+  
 </template>
 
 <style scoped>
@@ -38,6 +44,13 @@ nav {
   font-size: 12px;
   text-align: center;
   margin-top: 2rem;
+  
+}
+
+.routerView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 nav a.router-link-exact-active {
@@ -58,6 +71,9 @@ nav a:first-of-type {
   border: 0;
 }
 
+footer {
+  background-color: #28464B;
+}
 @media (min-width: 1024px) {
   header {
     display: flex;
@@ -76,7 +92,6 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
 

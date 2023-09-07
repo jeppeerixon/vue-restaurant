@@ -1,6 +1,10 @@
+<script setup lang="ts">
+  import AdminLoginVue from '@/components/AdminLogin.vue';
+</script>
+
 <template>
     <div class="admin">
-      <h1>This is the admin view!</h1>
+      <AdminLoginVue></AdminLoginVue>
     </div>
 </template>
   
