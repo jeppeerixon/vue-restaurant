@@ -1,7 +1,9 @@
 <template>
+    
        <header>
         <h1>La Italia Menu</h1>
     </header>
+    <div class="menu">
     <div class="menu-container">
         <div class="dish">
             <h2>Spaghetti Carbonara</h2>
@@ -23,6 +25,8 @@
             <p>Grilled chicken with creamy Alfredo sauce</p>
             <p class="price">159 kr</p>
         </div>
+    </div>
+    <div class="column">
         <div class="dish">
             <h2>Ravioli with Marinara</h2>
             <p>Stuffed pasta with tomato sauce</p>
@@ -44,6 +48,7 @@
             <p class="price">69 kr</p>
         </div>
     </div>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -51,49 +56,70 @@
 </script>
 
 <style lang="scss" scoped>
-            body {
-            font-family: Arial, sans-serif;
-            background-color: #326771;
-            margin: 0;
-            padding: 0;
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+}
+
+.menu-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #28464B;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: azure;
+    height: 500px;
+    margin-bottom: 2rem;
         }
-        header {
-            background-color: #42d9c8;
-            text-align: center;
-            padding: 20px;
-            color: #28464b;
+.column {
+    margin: 0 auto; 
+    max-width: 800px;
+    padding: 20px;
+    background-color: #28464B;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: azure;
+    height: 500px;
+    margin-bottom: 2rem;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #326771;
+    margin: 0;
+    padding: 0;
         }
-        h1 {
-            margin: 0;
-            font-family: 'Caveat', cursive;
-            font-family: 'Playfair', serif;
-            font-style: italic;
-            font-size: 3rem;
+header {
+    background-color: #42d9c8;
+    text-align: center;
+    padding: 20px;
+    color: #28464b;
         }
-        .menu-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #28464B;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            color: azure;
+h1 {
+    margin: 0;
+    font-family: 'Caveat', cursive;
+    font-family: 'Playfair', serif;
+    font-style: italic;
+    font-size: 3rem;
         }
-        .dish {
-            margin-bottom: 20px;
+
+.dish {
+    margin-bottom: 20px;
         }
-        .dish h2 {
-            font-size: 1.3rem;
-            margin: 0;
+.dish h2 {
+    font-size: 1.3rem;
+    margin: 0;
         }
-        .dish p {
-            margin: 0;
-            font-size: 1rem;
-            color: azure;
+.dish p {
+    margin: 0;
+    font-size: 1rem;
+    color: azure;
         }
-        .price {
-            font-size: 11.5rem;
-            font-weight: bold;
+.price {
+    font-size: 11.5rem;
+    font-weight: bold;
         }
 
 </style>

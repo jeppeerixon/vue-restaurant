@@ -141,6 +141,7 @@ label {
   padding: 20px;
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
 }
 
 li {
